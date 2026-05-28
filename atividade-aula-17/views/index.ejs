@@ -1,0 +1,31 @@
+<%- include('./partials/header') %>
+
+<div class="container d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 140px);">
+  <div class="w-100" style="max-width: 680px;">
+
+    <div class="text-center mb-4">
+      <h1 class="fw-bold" style="color: #e94560;">Ron Swanson</h1>
+      <p class="text-secondary">Uma nova sabedoria a cada visita.</p>
+    </div>
+
+    <% if (error) { %>
+      <div class="alert alert-danger text-center">⚠️ <%= error %></div>
+    <% } %>
+
+    <% if (quote) { %>
+      <div class="quote-card p-4 p-md-5 shadow-lg mb-4">
+        <span class="badge mb-3" style="background-color:#e94560;">Mensagem do Dia</span>
+        <p class="quote-text mb-0">"<%= quote %>"</p>
+        <hr style="border-color: #e94560; opacity: 0.3;" />
+        <p class="text-end mb-0" style="color: #e94560; font-weight: 600;">— Ron Swanson</p>
+      </div>
+    <% } %>
+
+    <div class="d-grid">
+      <a href="/" class="btn btn-nova-frase btn-lg">🔄 Nova Frase</a>
+    </div>
+
+  </div>
+</div>
+
+<%- include('./partials/footer') %>
