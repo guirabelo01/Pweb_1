@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+
+<div class="container d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 120px);">
+  <div class="w-100" style="max-width: 560px;">
+
+    <div class="text-center mb-5">
+      <h1 class="fw-bold" style="color: #66fcf1; font-size: 2.5rem;">🌌 Explore o Universo</h1>
+      <p style="color: #888;">Digite um astro para buscar imagens sem copyright na NASA APOD</p>
+    </div>
+
+    <form method="POST" action="/search">
+      <div class="input-group input-group-lg shadow">
+        <input
+          type="text"
+          class="form-control"
+          name="astro"
+          placeholder="Ex: Mars, Moon, Jupiter, Saturn..."
+          required
+          style="background-color: #1f2833; border-color: #45a29e; color: #c5c6c7;"
+        />
+        <button class="btn btn-buscar" type="submit">Buscar</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<%- include('./partials/footer') %>

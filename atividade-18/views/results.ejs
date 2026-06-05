@@ -1,0 +1,51 @@
+<%- include('./partials/header') %>
+
+<div class="container py-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 style="color: #66fcf1;">Resultados para: <em><%= astro %></em></h2>
+    <a href="/" class="btn btn-buscar">🔍 Nova busca</a>
+  </div>
+
+  <% if (images.length === 0) { %>
+    <div class="alert text-center py-5" style="background-color: #1f2833; color: #c5c6c7; border: 1px solid #45a29e;">
+      <h4>Nenhuma imagem encontrada sem copyright para "<%= astro %>".</h4>
+      <p>Tente: Moon, Mars, Jupiter, Saturn, Nebula, Galaxy...</p>
+    </div>
+  <% } else { %>
+
+    <p style="color: #888;" class="mb-4"><%= images.length %> imagem(ns) encontrada(s)</p>
+
+    <div id="carouselNasa" class="carousel slide shadow-lg" data-bs-ride="carousel">
+
+      <div class="carousel-indicators">
+        <% images.forEach((img, i) => { %>
+          <button type="button" data-bs-target="#carouselNasa" data-bs-slide-to="<%= i %>" class="<%= i === 0 ? 'active' : '' %>"></button>
+        <% }) %>
+      </div>
+
+      <div class="carousel-inner rounded">
+        <% images.forEach((img, i) => { %>
+          <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+            <img src="<%= img.url %>" class="d-block w-100 card-img-carousel" alt="<%= img.title %>" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= img.title %></h5>
+              <p style="font-size: 0.8rem;"><%= img.date %></p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselNasa" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselNasa" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+  <% } %>
+
+</div>
+
+<%- include('./partials/footer') %>
